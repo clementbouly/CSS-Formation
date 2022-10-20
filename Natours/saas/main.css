@@ -176,6 +176,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   color: #777;
+  margin-bottom: 2rem;
 }
 
 .paragraph {
@@ -222,6 +223,9 @@ body {
   .section-about > .row {
     max-width: 50rem;
   }
+  .section-about > .row [class^=col-] {
+    width: 100% !important;
+  }
 }
 @media only screen and (min-width: 600px) {
   html {
@@ -247,6 +251,19 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20rem;
+}
+
+.section-features {
+  padding: 20rem 0;
+  margin-top: -10rem;
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+  background-position: top;
+  transform: skewY(-7deg);
+}
+.section-features > * {
+  transform: skewY(7deg);
 }
 
 .btn:link, .btn:visited {
@@ -352,6 +369,28 @@ body {
   transform: scale(0.9);
 }
 
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 90%;
+  transition: all 0.3s;
+  border-radius: 0.3rem;
+}
+.feature-box__icon {
+  font-size: 6rem;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.feature-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
@@ -402,29 +441,29 @@ body {
   padding: 1rem;
 }
 .row [class^=col-]:not(:last-child) {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 .row .col-1-of-2 {
-  width: calc((100% - 3rem) / 2);
+  width: calc((100% - 2rem) / 2);
 }
 .row .col-1-of-3 {
-  width: calc((100% - 2 * 3rem) / 3);
+  width: calc((100% - 2 * 2rem) / 3);
 }
 .row .col-1-of-4 {
-  width: calc((100% - 3 * 3rem) / 4);
+  width: calc((100% - 3 * 2rem) / 4);
 }
 .row .col-2-of-3 {
   width: calc(
-      2 * ((100% - 2 * 3rem) / 3) + 3rem
+      2 * ((100% - 2 * 2rem) / 3) + 2rem
     );
 }
 .row .col-2-of-4 {
   width: calc(
-      2 * ((100% - 3 * 3rem) / 4) + 3rem
+      2 * ((100% - 3 * 2rem) / 4) + 2rem
     );
 }
 .row .col-3-of-4 {
   width: calc(
-      3 * ((100% - 3 * 3rem) / 4) + 2 * 3rem
+      3 * ((100% - 3 * 2rem) / 4) + 2 * 2rem
     );
 }/*# sourceMappingURL=main.css.map */
