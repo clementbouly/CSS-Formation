@@ -17,6 +17,9 @@
     .heading-primary__sub {
       letter-spacing: 0.5rem;
     }
+    .section-about>.row{
+      max-width: 50rem;
+    }
   }
   
   @media only screen and (min-width: 600px) {
@@ -33,11 +36,11 @@
   
   @media only screen and (min-width: 992px) {
     html {
-      font-size: 56.25%;
+      font-size: 62.5%;
     }
   }
   
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 112em) {
     html {
       font-size: 75%;
     }

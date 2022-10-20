@@ -26,3 +26,37 @@
       animation-duration: 1s;
     }
   }
+
+  .heading-secondary{
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, variables.$color-primary-light, variables.$color-primary-dark);
+    display: inline-block;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+
+    transition: all 1s;
+
+    &:hover{
+      transform: scale(105%);
+      text-shadow: 0.5rem 1rem 1rem rgba(variables.$color-black, .2);
+    }
+  }
+
+  .heading-tertiary{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: variables.$color-grey-dark;
+  }
+
+  .paragraph{
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    &:not(:last-child){
+      margin-bottom: 3rem;
+    }
+  }

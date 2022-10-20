@@ -154,6 +154,54 @@ body {
           animation-duration: 1s;
 }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 1s;
+}
+.heading-secondary:hover {
+  transform: scale(105%);
+  text-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.heading-tertiary {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 2rem;
+}
+
 @media only screen and (max-width: 600px) {
   html {
     font-size: 48%;
@@ -171,6 +219,9 @@ body {
   .heading-primary__sub {
     letter-spacing: 0.5rem;
   }
+  .section-about > .row {
+    max-width: 50rem;
+  }
 }
 @media only screen and (min-width: 600px) {
   html {
@@ -184,14 +235,20 @@ body {
 }
 @media only screen and (min-width: 992px) {
   html {
-    font-size: 56.25%;
+    font-size: 62.5%;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 112em) {
   html {
     font-size: 75%;
   }
 }
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20rem;
+}
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -238,6 +295,63 @@ body {
           animation-fill-mode: backwards;
 }
 
+.btn-text {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  color: #7ed56f;
+  transition: all 0.4s;
+  text-decoration: none;
+  border-bottom: 1px solid #7ed56f;
+}
+.btn-text:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  background-color: #7ed56f;
+  color: white;
+}
+.btn-text:active {
+  transform: translate(0);
+}
+
+.composition {
+  position: relative;
+}
+.composition__photo {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 0.1rem;
+  position: absolute;
+  transition: all 0.2s;
+}
+.composition__photo:hover {
+  z-index: 20;
+  transform: scale(1.2);
+  outline: 1rem solid #7ed56f;
+  outline-offset: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.composition__photo:active {
+  transform: scale(200%) translateX(-10rem);
+}
+.composition__photo__p1 {
+  top: 0;
+  left: 0;
+}
+.composition__photo__p2 {
+  top: 5rem;
+  left: 43%;
+}
+.composition__photo__p3 {
+  top: 12rem;
+  left: 17%;
+}
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.9);
+}
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
@@ -273,9 +387,7 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto;
-  color: white;
 }
 .row:not(:last-child) {
   margin-bottom: 8rem;
@@ -286,7 +398,6 @@ body {
   clear: both;
 }
 .row [class^=col-] {
-  background-image: linear-gradient(225deg, rgb(25, 136, 247) 0%, rgb(247, 25, 136) 100%);
   float: left;
   padding: 1rem;
 }
