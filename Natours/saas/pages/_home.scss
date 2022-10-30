@@ -32,10 +32,6 @@
 }
 
 .section-stories {
+  position: relative;
   padding: 15rem 0;
-  background-size: cover;
-  background-position: top;
-  background-image: linear-gradient(rgba($color-grey-light-1, 0.8),
-      rgba($color-grey-light-1, 0.9)),
-    url(../img/nat-4.jpg);
 }

@@ -285,10 +285,8 @@ body {
 }
 
 .section-stories {
+  position: relative;
   padding: 15rem 0;
-  background-size: cover;
-  background-position: top;
-  background-image: linear-gradient(rgba(247, 247, 247, 0.8), rgba(247, 247, 247, 0.9)), url(../img/nat-4.jpg);
 }
 
 .btn:link, .btn:visited {
@@ -584,6 +582,22 @@ body {
 .story:hover .story__shape__img {
   filter: brightness(70%) blur(0.2rem);
   transform: scale(1) translateX(-2rem);
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.2;
+}
+.bg-video__content {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .header {
