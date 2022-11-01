@@ -188,31 +188,31 @@ body {
 }
 
 .u-center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .u-margin-top-big {
-  margin-top: 10rem;
+  margin-top: 10rem !important;
 }
 
 .u-margin-top-medium {
-  margin-top: 4rem;
+  margin-top: 4rem !important;
 }
 
 .u-margin-top-small {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -289,7 +289,12 @@ body {
   padding: 15rem 0;
 }
 
-.btn:link, .btn:visited {
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -298,12 +303,14 @@ body {
   position: relative;
   transition: all 0.2s;
   font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-.btn:active {
+.btn:active, .btn:focus {
   transform: translateY(0.1rem);
   box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -315,11 +322,11 @@ body {
   background-color: white;
 }
 .btn--green {
-  background-color: #7ed56f;
+  background-color: #55c57a;
   color: white;
 }
 .btn--green::after {
-  background-color: #7ed56f;
+  background-color: #55c57a;
 }
 .btn::after {
   content: "";
@@ -598,6 +605,106 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  background-size: cover;
+}
+.book__form {
+  height: 100%;
+  width: 50%;
+  padding: 6rem;
+}
+
+.form__group {
+  position: relative;
+}
+.form__group:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.form__input-text {
+  font-size: 1.5rem;
+  font-family: inherit;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.797);
+  border: none;
+  width: 90%;
+  display: block;
+  color: inherit;
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.5s ease;
+}
+.form__input-text:focus:invalid {
+  border-bottom: 3px solid orangered;
+}
+.form__input-text:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #55c57a;
+}
+.form__input-text::-webkit-input-placeholder {
+  color: #999;
+}
+.form__input-label {
+  display: block;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.form__input-text:-moz-placeholder-shown ~ .form__input-label {
+  transform: translateY(-2rem);
+  opacity: 0;
+}
+.form__input-text:-ms-input-placeholder ~ .form__input-label {
+  transform: translateY(-2rem);
+  opacity: 0;
+}
+.form__input-text:placeholder-shown ~ .form__input-label {
+  transform: translateY(-2rem);
+  opacity: 0;
+}
+.form__radio-group {
+  display: inline-block;
+  width: 49%;
+}
+.form__radio-input {
+  display: none;
+}
+.form__radio-button {
+  height: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid #55c57a;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+}
+.form__radio-button::after {
+  content: "";
+  height: 1.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #55c57a;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.form__radio-label {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
+.form__radio-input:checked + .form__radio-label .form__radio-button::after {
+  opacity: 1;
 }
 
 .header {
