@@ -1,0 +1,145 @@
+@use "../abstracts/variables" as *;
+
+.navigation {
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        cursor: pointer;
+        background-color: $color-white;
+        width: 7rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow: $normal-shadow;
+
+        display: grid;
+        place-content: center;
+
+        z-index: 502;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+    }
+
+    &__icon {
+        position: relative;
+        transition: all .5s ease;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-black;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s ease;
+        }
+
+        &::before {
+            top: -1rem;
+        }
+
+        &::after {
+            top: 1rem;
+        }
+
+    }
+
+    &__button:hover &__icon {
+        transform: rotate(90deg);
+    }
+
+    &__checkbox:checked~&__button &__icon{
+        background-color: transparent;
+    }
+
+    &__checkbox:checked~&__button &__icon::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    &__checkbox:checked~&__button &__icon::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    &__background {
+        background-image: radial-gradient($color-primary-light,
+                $color-primary-dark );
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 500;
+
+        width: 7rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        transition: all .8s ease;
+    }
+
+    &__nav {
+        display: grid;
+        opacity: 0;
+        height: 95vh;
+        width: 0;
+        z-index: 501;
+        position: fixed;
+        place-content: center;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 300;
+        transition: all .8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        text-transform: uppercase;
+        color: white;
+    }
+
+    &__list {
+        list-style: none;
+        counter-reset: nav-counter;
+    }
+
+    &__item {
+        padding: 1rem;
+        counter-increment: nav-counter;
+        transition: all .5s ease;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+        background-size: 220%;
+
+        &:hover {
+            background-position: 100%;
+            color: $color-primary-light;
+            transform: translateX(1rem);
+        }
+
+        &::before {
+            content: "0" counter(nav-counter);
+            margin-right: 1.5rem;
+            color: inherit;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__checkbox:checked~&__background {
+        transform: scale(80);
+    }
+
+    &__checkbox:checked~&__nav {
+        width: 95vw;
+        opacity: 1;
+    }
+
+
+}
