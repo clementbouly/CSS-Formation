@@ -17,19 +17,39 @@
   </head>
   <body>
     <div class="navigation">
-      <input type="checkbox" class="navigation__checkbox" id="navigation-toggle">
+      <input
+        type="checkbox"
+        class="navigation__checkbox"
+        id="navigation-toggle"
+      />
       <label for="navigation-toggle" class="navigation__button">
         <span class="navigation__icon">&nbsp;</span>
       </label>
       <div class="navigation__background">&nbsp;</div>
       <nav class="navigation__nav">
         <ul class="navigation__list">
-          <li class="navigation__item"><a href="#" class="navigation__link">About Natours</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link">Your benefits</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link">Polular tours</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link">Stories</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link">Book now</a></li>
-          <li class="navigation__item"><a href="javascript:window.location.reload(true)" class="navigation__link">Footer</a></li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">About Natours</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Your benefits</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Polular tours</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Stories</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Book now</a>
+          </li>
+          <li class="navigation__item">
+            <a
+              href="javascript:window.location.reload(true)"
+              class="navigation__link"
+              >Footer</a
+            >
+          </li>
         </ul>
       </nav>
     </div>
@@ -43,7 +63,7 @@
           <span class="heading-primary__main">Outdoors</span>
           <span class="heading-primary__sub">is where life happens</span>
         </h1>
-        <a href="#" class="btn btn--white btn--animated">discover our tours</a>
+        <a href="#section-tours" class="btn btn--white btn--animated">discover our tours</a>
       </div>
     </header>
 
@@ -72,8 +92,8 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
               commodi blanditiis alias molestiae. Voluptatibus, expedita.
             </p>
-            <a href="#" class="btn-text">Learn more &rarr;</a>
-         </div>
+            <a href="#section-features" class="btn-text">Learn more &rarr;</a>              
+          </div>
           <div class="flex-box">
             <div class="composition">
               <img
@@ -92,12 +112,11 @@
                 alt="landscape 3"
               />
             </div>
-         </div>
-         </div>
+          </div>
         </div>
       </section>
 
-      <section class="section-features">
+      <section class="section-features" id="section-features">
         <div class="flex-container">
           <div class="flex-box">
             <div class="feature-box">
@@ -142,7 +161,7 @@
         </div>
       </section>
 
-      <section class="section-tour">
+      <section class="section-tours" id="section-tours">
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">Most popular Tours</h2>
         </div>
@@ -173,7 +192,7 @@
                     <p class="card__price-only">only</p>
                     <p class="card__price-value">452€</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now</a>
+                  <a href="#popup" class="btn btn--white">Book now</a>                  
                 </div>
               </div>
             </div>
@@ -204,7 +223,7 @@
                     <p class="card__price-only">only</p>
                     <p class="card__price-value">685€</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now</a>
+                  <a href="#popup" class="btn btn--white">Book now</a>
                 </div>
               </div>
             </div>
@@ -234,7 +253,7 @@
                     <p class="card__price-only">only</p>
                     <p class="card__price-value">297€</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now</a>
+                  <a href="#popup" class="btn btn--white">Book now</a>
                 </div>
               </div>
             </div>
@@ -349,9 +368,8 @@
                       required
                     />
                     <label for="small" class="form__radio-label">
-                     Small tour group
-                    </label
-                    >
+                      Small tour group
+                    </label>
                   </div>
                   <div class="form__radio-group">
                     <input
@@ -408,6 +426,42 @@
         </div>
       </div>
     </footer>
+
+    <div class="popup " id="popup">
+      <a href="#section-tours" class="popup__close-bg"></a>
+      <div class="popup__content">
+        <div class="popup__left">
+          <img src="/img/nat-8.jpg" alt="image 8" />
+          <img src="/img/nat-9.jpg" alt="image 9" />
+        </div>
+        <div class="popup__right">
+          <h2 class="heading-secondary u-margin-bottom-small">
+            Start booking now
+          </h2>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Important &ndash; Please read these terms before booking
+          </h3>
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi amet
+            delectus pariatur eius unde expedita hic fugit est, quo nobis ex,
+            sit molestias inventore? Itaque odit voluptates obcaecati officia.
+            Debitis eos dicta aperiam, tempore minima eius impedit laudantium
+            dolorum inventore! Deleniti cum molestiae fugit. Rerum, enim nisi
+            aliquam optio perferendis assumenda aspernatur nihil officiis quis,
+            dolore ratione cupiditate mollitia ab sint eos eius impedit ipsum
+            corrupti modi vero earum laborum esse recusandae ad. Recusandae,
+            assumenda. Repudiandae illo minus laboriosam, vitae, obcaecati
+            consequuntur corporis in quam, sequi magnam voluptatum vel
+            cupiditate perspiciatis deleniti adipisci officia et! Corrupti nisi
+            id hic voluptatum.
+          </p>
+
+          <a href="#" class="btn btn--green">Book now </a>
+        </div>
+        <a href="#section-tours" class="popup__close">&times;</a>
+      </div>
+    </div>
+
 
     <!-- <section class="flexbox-test">
       <div class="flex-container">
