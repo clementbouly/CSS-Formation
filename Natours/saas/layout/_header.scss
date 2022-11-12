@@ -1,5 +1,5 @@
 @use "../abstracts/variables";
-
+@use "../abstracts/mixins" as *;
 
 .header {
     height: 95vh;
@@ -13,6 +13,11 @@
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @include respond(phone, tab-port) {
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
     position: relative;
   
     &__logo {

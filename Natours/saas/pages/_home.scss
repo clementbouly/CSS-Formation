@@ -1,18 +1,32 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .section-about {
   background-color: $color-grey-light-1;
   padding: 25rem 2rem;
   margin-top: -20rem;
+
+  @include respond(tab-port) {
+    padding-bottom: 40rem;
+  }
+
+  @include respond(phone) {
+    padding-bottom: 30rem;
+  }
 }
 
 .section-features {
   padding: 20rem 2rem;
+
+  @include respond(tab-port, phone) {
+    padding: 10rem 1rem;
+  }
+
   margin-top: -10rem;
   background-image: linear-gradient(to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)),
-    url(../img/nat-4.jpg);
+    rgba($color-primary-light, 0.8),
+    rgba($color-primary-dark, 0.8)),
+  url(../img/nat-4.jpg);
 
   background-size: cover;
   background-position: top;
@@ -26,6 +40,15 @@
 
 .section-tours {
   padding: 25rem 0 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 18rem 1rem 10rem 1rem;
+  }
+
+  @include respond(phone) {
+    padding: 15rem 1rem 5rem 1rem;
+  }
+
   margin-top: -10rem;
   background-color: $color-grey-light-1;
 }
@@ -33,9 +56,26 @@
 .section-stories {
   position: relative;
   padding: 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 10rem;
+  }
+
+  @include respond(phone) {
+    padding: 5rem;
+  }
 }
 
 .section-book {
   padding: 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 10rem;
+  }
+
+  @include respond(phone) {
+    padding: 5rem;
+  }
+
   background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
 }

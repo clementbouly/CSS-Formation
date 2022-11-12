@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .form {
     &__group {
@@ -56,6 +57,12 @@
         display: inline-block;
         width: 49%;
         position: relative;
+
+        @include respond(phone, tab-port) {
+            display: block;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
 
     }
 

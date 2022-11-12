@@ -1,17 +1,48 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .book {
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%),
         url(../img/nat-10.jpg);
+
+    @include respond(phone, tab-port) {
+        background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%),
+            url(../img/nat-10.jpg);
+        ;
+    }
+
+    @include respond(tab-land) {
+        background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%),
+            url(../img/nat-10.jpg);
+    }
+
     background-size: 100%;
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-    background-size: cover ;
+    background-size: cover;
+    margin: 0 auto;
+
+    @include respond(phone, tab-port) {
+        width: 85%;
+    }
 
     &__form {
         height: 100%;
         width: 50%;
         padding: 6rem;
+
+        @include respond(phone) {
+            width: 100%;
+            padding: 7rem 5rem;
+        }
+
+        @include respond(tab-port, tab-land) {
+            width: 100%;
+        }
+
+        @include respond(tab-land) {
+            width: 70%;
+        }
 
     }
 }

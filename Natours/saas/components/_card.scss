@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins" as *;
 
 .card {
   perspective: 150rem;
@@ -151,6 +152,49 @@
     &-value {
       font-size: 6rem;
       font-weight: 100;
+    }
+  }
+
+  @include respond(phone, tab-port, tab-land) {
+
+    height: auto;
+    position: relative;
+    background-color: variables.$color-white;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+    &__side {
+      position: relative;
+
+      &--front {
+        height: auto;
+        box-shadow: none;
+        background-color: none;
+      }
+
+      &--back {
+        transform: rotate(0);
+        height: auto;
+        padding: 5rem;
+        clip-path: polygon(0% 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotate(0);
+    }
+
+    &__price {
+      &-box {
+        margin-bottom: 2rem;
+      }
+
+      &-only {
+        font-size: 1.5rem;
+      }
+
+      &-value {
+        font-size: 4rem;
+      }
     }
   }
 }

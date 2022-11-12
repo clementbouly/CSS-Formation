@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins" as *;
 
 .heading-primary {
     text-transform: uppercase;
@@ -14,6 +15,11 @@
       animation-name: moveInLeft;
       animation-duration: 1s;
       animation-timing-function: ease-out;
+
+      @include respond(phone) {
+        letter-spacing: 1rem;
+      }
+      
     }
   
     &__sub {
@@ -24,6 +30,10 @@
   
       animation-name: moveInRight;
       animation-duration: 1s;
+
+      @include respond(phone) {
+        letter-spacing: .5rem;
+      }
     }
   }
 
@@ -36,12 +46,20 @@
     background-clip: text;
     color: transparent;
     letter-spacing: .2rem;
-
     transition: all 1s;
 
     &:hover{
       transform: scale(105%);
       text-shadow: 0.5rem 1rem 1rem rgba(variables.$color-black, .2);
+    }
+
+    @include respond(phone) {
+      font-size: 2.5rem;
+      width: 90%;
+    }
+
+    @include respond(tab-port) {
+      font-size: 3rem;
     }
   }
 
