@@ -67,6 +67,16 @@ body {
   }
 }
 
+::-moz-selection {
+  background-color: #55c57a;
+  color: white;
+}
+
+::selection {
+  background-color: #55c57a;
+  color: white;
+}
+
 @-webkit-keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -773,7 +783,7 @@ body {
     font-size: 4rem;
   }
 }
-@media only screen and (min-width: 56.25em) and (max-width: 75em) {
+@media (hover: none) {
   .card {
     height: auto;
     position: relative;
@@ -1171,9 +1181,29 @@ body {
   padding: 10rem 1rem;
   color: white;
 }
+@media only screen and (max-width: 37.5em) {
+  .footer {
+    padding: 5rem 1rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .footer {
+    padding: 5rem 1rem;
+  }
+}
 .footer__logo-box {
   text-align: center;
   margin-bottom: 8rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .footer__logo-box {
+    margin-bottom: 3rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .footer__logo-box {
+    margin-bottom: 3rem;
+  }
 }
 .footer__navigation {
   border-top: 0.2px solid #777;

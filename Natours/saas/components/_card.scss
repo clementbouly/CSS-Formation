@@ -155,7 +155,7 @@
     }
   }
 
-  @include respond(phone, tab-port, tab-land) {
+  @include respond(phone, tab-port, touch-screens) {
 
     height: auto;
     position: relative;

@@ -50,28 +50,40 @@
     }
 }
 
+@mixin touch-screens {
+    @media (hover: none) {
+        @content;
+    }
+}
+
 @mixin respond($breakpoints...) {
     @each $breakpoint in $breakpoints {
-        @if $breakpoint == phone {
+        @if $breakpoint ==phone {
             @include phone {
                 @content;
             }
         }
 
-        @else if $breakpoint == tab-port {
+        @else if $breakpoint ==tab-port {
             @include tab-port {
                 @content;
             }
         }
 
-        @else if $breakpoint == tab-land {
+        @else if $breakpoint ==tab-land {
             @include tab-land {
                 @content;
             }
         }
 
-        @else if $breakpoint == big-desktop {
+        @else if $breakpoint ==big-desktop {
             @include big-desktop {
+                @content;
+            }
+        }
+
+        @else if $breakpoint ==touch-screens {
+            @include touch-screens {
                 @content;
             }
         }
