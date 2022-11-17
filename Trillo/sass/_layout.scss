@@ -1,32 +1,45 @@
-.container{
-    // width: 100%;
+@use './mixins' as *;
+
+.container {
     max-width: 120rem;
-    // width: 100rem;
-    margin: 8rem auto;
-    max-width: 132rem;
-    background-color: var(--color-white);
+    min-height: 50rem;
+    background-color: var(--color-grey-light-2);
     box-shadow: var(--shadow-dark);
+    margin: 8rem auto;
+
+    @include respond(phone, tab-port) {
+        margin: 0;
+    }
 }
 
-.header{
-    padding: 3rem;
+.header {
+    font-size: 1.4rem;
     height: 7rem;
     background-color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.content{
-    // height: 80rem;
+
+.content {
     background-color: grey;
     display: flex;
+
+    @include respond(phone, tab-port) {
+        flex-direction: column;
+    }
 }
 
-.sidebar{
-    padding: 3rem;
+.sidebar {
     background-color: var(--color-grey-dark-1);
-    flex-basis: 20rem;
+    flex: 0 0 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.hotel-view{
+.hotel-view {
     padding: 3rem;
     background-color: goldenrod;
     flex: 1;

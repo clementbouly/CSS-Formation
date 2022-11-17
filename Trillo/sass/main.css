@@ -1,3 +1,17 @@
+@charset "UTF-8";
+/*
+    0 - 600px = mobile
+    600px - 900px = portrait tablet
+    900px - 1200px = landscape tablet
+    [1200px - 1800px] = desktop (normal style : desktop first)
+    1800px - § = large desktop
+
+    This mixins are used to create media queries for responsive design.
+
+    1em = 16px
+    We use em because it is relative to the parent element
+    Wich is the font-size used in the browser settings (usually 16px)
+*/
 :root {
   --color-primary: #eb2f64;
   --color-primary-light: #FF3366;
@@ -27,8 +41,28 @@
 }
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (min-width: 56.25em) and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  html {
+    font-size: 54%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 52%;
+  }
+}
+@media only screen and (min-width: 2400px) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -40,33 +74,214 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: grid;
-  place-content: center;
 }
 
+.logo {
+  height: 3rem;
+  margin-left: 2rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+}
+.search__input {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.8rem 2rem;
+  border-radius: 3rem;
+  background-color: var(--color-grey-light-2);
+  color: var(--color-grey-dark-2);
+  border: none;
+  margin-right: -3.5rem;
+  width: 90%;
+  transition: all 0.5s;
+}
+.search__input::-moz-placeholder {
+  color: var(--color-grey-light-4);
+  font-weight: 100;
+}
+.search__input:-ms-input-placeholder {
+  color: var(--color-grey-light-4);
+  font-weight: 100;
+}
+.search__input::placeholder {
+  color: var(--color-grey-light-4);
+  font-weight: 100;
+}
+.search__input:focus {
+  outline: none;
+  width: 100%;
+  background-color: var(--color-grey-light-3);
+}
+.search__input:focus + .search__button {
+  background-color: var(--color-grey-light-3);
+}
+.search__button {
+  border: none;
+  background-color: transparent;
+}
+.search__button:active {
+  outline: none;
+  transform: translateY(0.3rem);
+}
+.search__icon {
+  width: 2rem;
+  aspect-ratio: 1;
+  fill: var(--color-grey-dark-3);
+}
+
+.user-nav {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+}
+.user-nav > * {
+  padding: 0 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.user-nav > *:hover {
+  background-color: var(--color-grey-light-3);
+}
+.user-nav__icon-box {
+  position: relative;
+}
+.user-nav__icon {
+  width: 2.25rem;
+  aspect-ratio: 1;
+  fill: var(--color-grey-dark-2);
+}
+.user-nav__notification {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  width: 1.8rem;
+  aspect-ratio: 1;
+  top: 1.3rem;
+  right: 1.3rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.user-nav__user {
+  gap: 1rem;
+}
+.user-nav__user-photo {
+  width: 4rem;
+  border-radius: 50%;
+}
+
+/* ************** */
+.side-nav {
+  list-style: none;
+  margin-top: 3.5rem;
+}
+.side-nav__item {
+  position: relative;
+}
+.side-nav__item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.side-nav__item::before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transition: transform 0.5s, width 0.3s 0.3s ease;
+}
+.side-nav__item:hover::before, .side-nav__item--active::before {
+  transform: scaleY(1);
+  width: 100%;
+}
+.side-nav__item:active::before {
+  background-color: var(--color-primary-light);
+}
+.side-nav__link {
+  padding: 1.5rem 3rem;
+  width: 100%;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 10;
+}
+.side-nav__icon {
+  width: 2rem;
+  aspect-ratio: 1;
+  fill: currentColor;
+}
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ************** */
 .container {
   max-width: 120rem;
-  margin: 8rem auto;
-  max-width: 132rem;
-  background-color: var(--color-white);
+  min-height: 50rem;
+  background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
+  margin: 8rem auto;
+}
+@media only screen and (max-width: 37.5em) {
+  .container {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .container {
+    margin: 0;
+  }
 }
 
 .header {
-  padding: 3rem;
+  font-size: 1.4rem;
   height: 7rem;
   background-color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .content {
   background-color: grey;
   display: flex;
 }
+@media only screen and (max-width: 37.5em) {
+  .content {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .content {
+    flex-direction: column;
+  }
+}
 
 .sidebar {
-  padding: 3rem;
   background-color: var(--color-grey-dark-1);
-  flex-basis: 20rem;
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
