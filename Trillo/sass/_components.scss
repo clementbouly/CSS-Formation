@@ -1,4 +1,6 @@
-// HEADER COMPONENTS //
+@use './mixins' as *;
+
+// HEADER //
 .logo {
     height: 3rem;
     margin-left: 2rem;
@@ -125,6 +127,12 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @include respond(phone, tab-port) {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0;
+    }
+
     &__item {
 
         position: relative;
@@ -133,7 +141,7 @@
             margin-bottom: .5rem;
         }
 
-        &::before{
+        &::before {
             content: '';
             width: 5px;
             height: 100%;
@@ -145,7 +153,8 @@
             transition: transform .5s, width .3s .3s ease;
         }
 
-        &:hover::before, &--active::before{
+        &:hover::before,
+        &--active::before {
             transform: scaleY(1);
             width: 100%;
         }
@@ -184,6 +193,116 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2rem;
+
+    @include respond(phone, tab-port) {
+        display: none;
+    }
 }
 
 /* ************** */
+
+// GALERY //
+
+.gallery {
+    display: flex;
+
+    & img {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* ************** */
+
+// HOTEL OVERVIEW //
+
+.overview {
+    display: flex;
+    background-color: var(--color-white);
+    height: auto;
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
+    font-size: 1.2rem;
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: var(--color-grey-dark-2);
+        padding: 1.5rem 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    &__stars {
+        margin-right: auto;
+        display: flex;
+    }
+
+    &__location {
+        display: flex;
+        align-items: center;
+    }
+
+    &__rating {
+        color: var(--color-white);
+        background-color: var(--color-primary);
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem;
+        margin-left: 3rem;
+
+        &-average {
+            font-size: 2.2rem;
+            font-weight: 400;
+        }
+
+        &-count {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+    }
+
+    & [class*='icon'] {
+        width: 1.8rem;
+        aspect-ratio: 1;
+        fill: var(--color-primary);
+    }
+}
+
+/* ************** */
+
+.btn-inline {
+    font-size: inherit;
+    padding: .3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    border-bottom: 1px solid currentColor;
+    transition: .5s ease;
+
+    &:hover {
+        color: var(--color-grey-dark-2);
+    }
+
+    &:focus {
+        animation: pulsate .5s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+    
+}
