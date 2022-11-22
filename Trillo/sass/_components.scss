@@ -116,11 +116,59 @@
 
     &__user {
         gap: 1rem;
+        position: relative;
 
         &-photo {
             width: 4rem;
             //crop the image with circle
             border-radius: 50%;
+
+        }
+
+        &:hover &-menu {
+            opacity: 1;
+            height: 22rem;
+        }
+
+        &-menu {
+            transition: all .5s;
+            opacity: 0;
+            position: absolute;
+            top: 7rem;
+            left: 0;
+            list-style: none;
+            color: white;
+            z-index: 11;
+            background-color: var(--color-grey-dark-1);
+            height: 0;
+
+            @include respond(phone) {
+                top: 4rem;
+            }
+
+            &__item {
+                padding: 1rem 2rem;
+                cursor: pointer;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    background-color: var(--color-primary);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: scaleY(0);
+                    transition: transform .5s, width .3s .3s ease;
+                    z-index: -1;
+                }
+
+                &:hover::before {
+                    transform: scaleY(1);
+                    width: 100%;
+                }
+            }
 
         }
 
@@ -195,7 +243,7 @@
         position: relative;
         z-index: 10;
 
-        & span{
+        & span {
             @include respond(phone) {
                 display: none;
             }

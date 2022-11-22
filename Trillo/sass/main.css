@@ -180,10 +180,53 @@ body {
 }
 .user-nav__user {
   gap: 1rem;
+  position: relative;
 }
 .user-nav__user-photo {
   width: 4rem;
   border-radius: 50%;
+}
+.user-nav__user:hover .user-nav__user-menu {
+  opacity: 1;
+  height: 22rem;
+}
+.user-nav__user-menu {
+  transition: all 0.5s;
+  opacity: 0;
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  list-style: none;
+  color: white;
+  z-index: 11;
+  background-color: var(--color-grey-dark-1);
+  height: 0;
+}
+@media only screen and (max-width: 37.5em) {
+  .user-nav__user-menu {
+    top: 4rem;
+  }
+}
+.user-nav__user-menu__item {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  position: relative;
+}
+.user-nav__user-menu__item::before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transition: transform 0.5s, width 0.3s 0.3s ease;
+  z-index: -1;
+}
+.user-nav__user-menu__item:hover::before {
+  transform: scaleY(1);
+  width: 100%;
 }
 
 /* ************** */
