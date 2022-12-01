@@ -1,0 +1,66 @@
+@use "./base" as *;
+@use "./mixins" as *;
+
+.story {
+
+  &__content {
+    color: $color-grey-dark-1;
+    background-color: $color-grey-light-1;
+    grid-area: story-content;
+    padding: 6rem 8vw;
+    display: grid;
+    align-content: center;
+    justify-items: start;
+  }
+
+  &__pictures {
+    background-color: $color-primary;
+    grid-area: story-pictures;
+    background-image: linear-gradient(to right bottom,
+        rgba($color-primary-dark, 0.5),
+        rgba($color-primary-dark, 0.5)),
+      url("/img/back.jpg");
+    background-size: cover;
+
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    position: relative;
+
+    @include respond(phone, tab-port) {
+      padding: 6rem;
+      justify-items: start;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  &__img {
+
+    &--1 {
+      width: 65%;
+
+      @include respond(phone, tab-port) {
+        width: 60%;
+      }
+    }
+
+    &--2 {
+      width: 55%;
+      position: absolute;
+      right: -5rem;
+      top: 50%;
+
+      @include respond(phone, tab-port) {
+        width: 40%;
+        left: 50%;
+        top: 33%;
+      }
+    }
+  }
+}

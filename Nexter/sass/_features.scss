@@ -1,0 +1,37 @@
+@use "./base" as *;
+@use "./mixins" as *;
+
+.features {
+  background-color: $color-white;
+  grid-area: features;
+  justify-self: center;
+  margin: 15rem 5rem;
+
+  display: grid;
+  gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  align-items: start;
+
+  @include respond(phone, tab-port) {
+    margin: 5rem;
+  }
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 1rem;
+  column-gap: 2rem;
+  align-items: center;
+
+  &__icon {
+    height: 5rem;
+    aspect-ratio: 1;
+    fill: $color-primary;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    grid-column: 2 / 3;
+  }
+}

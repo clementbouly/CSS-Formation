@@ -1,6 +1,476 @@
+@charset "UTF-8";
+/*
+    0 - 600px = mobile
+    600px - 900px = portrait tablet
+    900px - 1200px = landscape tablet
+    [1200px - 1800px] = desktop (normal style : desktop first)
+    1800px - § = large desktop
+
+    This mixins are used to create media queries for responsive design.
+
+    1em = 16px
+    We use em because it is relative to the parent element
+    Wich is the font-size used in the browser settings (usually 16px)
+*/
+:root {
+  --test: rgb(255 0 0);
+  --test-rgb: 255 0 0;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
+}
+
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (min-width: 56.25em) and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  html {
+    font-size: 49%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 48%;
+  }
+}
+@media only screen and (min-width: 2400px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
   font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #54483A;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: 8rem 48% 1fr minmax(33%, 1fr);
+  grid-template-areas: "sidebar header         header          realtors" "sidebar features       features        features" "sidebar story-pictures story-content  story-content" "sidebar homes          homes           homes" "sidebar gallery        gallery         gallery" "sidebar footer         footer          footer";
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .container {
+    grid-template-rows: 5rem 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+    grid-template-rows: 5rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: 50% 1fr minmax(30%, 1fr);
+    grid-template-areas: "sidebar sidebar  sidebar" "header  header   realtors" "features features features" "story-content story-content story-content" "story-pictures story-pictures story-pictures " "homes homes homes" "gallery gallery gallery" "footer footer footer";
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem repeat(8, -webkit-min-content);
+    grid-template-rows: 5rem repeat(8, min-content);
+    grid-template-areas: "sidebar" "header" "realtors" "features" "story-content" "story-pictures" "homes" "gallery" "footer";
+  }
+}
+
+.heading-4, .heading-3, .heading-2, .heading-1 {
+  font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.heading-1 {
+  font-size: 3.5rem;
+}
+
+.heading-2 {
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+}
+.heading-2--dark {
+  color: #54483A;
+}
+.heading-2--light {
+  color: #f9f7f6;
+}
+
+.heading-3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #c69963;
+}
+
+.heading-4 {
+  font-size: 1.9rem;
+}
+.heading-4--dark {
+  color: #54483A;
+}
+.heading-4--light {
+  color: #f9f7f6;
+}
+
+.btn {
+  background-color: #c69963;
+  color: #fff;
+  padding: 1.5rem 3rem;
+  border: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  font-family: "Josefin Sans", sans-serif;
+}
+.btn:hover {
+  background-color: hsl(32deg, 39%, 51%);
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.sidebar {
+  background-color: #c69963;
+  grid-area: sidebar;
+}
+
+.header {
+  background-color: #101d2c;
+  grid-area: header;
+}
+
+.realtors {
+  background-color: #101d2c;
+  grid-area: realtors;
+}
+
+.features {
+  background-color: #fff;
+  grid-area: features;
+  justify-self: center;
+  margin: 15rem 5rem;
+  display: grid;
+  gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  align-items: start;
+}
+@media only screen and (max-width: 37.5em) {
+  .features {
+    margin: 5rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .features {
+    margin: 5rem;
+  }
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  gap: 1rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  align-items: center;
+}
+.feature__icon {
+  height: 5rem;
+  aspect-ratio: 1;
+  fill: #c69963;
+}
+.feature__text {
+  font-size: 1.7rem;
+  grid-column: 2/3;
+}
+
+.story__content {
+  color: #54483A;
+  background-color: #f9f7f6;
+  grid-area: story-content;
+  padding: 6rem 8vw;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+}
+.story__pictures {
+  background-color: #c69963;
+  grid-area: story-pictures;
+  background-image: linear-gradient(to right bottom, rgba(179, 133, 81, 0.5), rgba(179, 133, 81, 0.5)), url("/img/back.jpg");
+  background-size: cover;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .story__pictures {
+    padding: 6rem;
+    justify-items: start;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .story__pictures {
+    padding: 6rem;
+    justify-items: start;
+  }
+}
+.story__text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+.story__img--1 {
+  width: 65%;
+}
+@media only screen and (max-width: 37.5em) {
+  .story__img--1 {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .story__img--1 {
+    width: 60%;
+  }
+}
+.story__img--2 {
+  width: 55%;
+  position: absolute;
+  right: -5rem;
+  top: 50%;
+}
+@media only screen and (max-width: 37.5em) {
+  .story__img--2 {
+    width: 40%;
+    left: 50%;
+    top: 33%;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .story__img--2 {
+    width: 40%;
+    left: 50%;
+    top: 33%;
+  }
+}
+
+.homes {
+  grid-area: homes;
+  justify-self: center;
+  margin: 15rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 4rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .homes {
+    margin: 5rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .homes {
+    margin: 5rem;
+  }
+}
+
+.home {
+  background-color: #f9f7f6;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  position: relative;
+  justify-items: flex-start;
+  grid-template-areas: "img img" "name name" "location rooms" "area price" "btn btn";
+}
+.home__img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  grid-area: img;
+}
+.home__like {
+  width: 2rem;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.home__like--liked {
+  fill: hsl(0deg, 74%, 46%);
+}
+.home__like:hover {
+  fill: hsl(0deg, 74%, 46%);
+  cursor: pointer;
+}
+.home__name {
+  grid-area: name;
+  background-color: #101d2c;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+  justify-self: center;
+  width: 80%;
+  position: absolute;
+  top: -5rem;
+}
+.home__location, .home__rooms, .home__area, .home__price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  font-size: 1.5rem;
+}
+.home__location svg, .home__rooms svg, .home__area svg, .home__price svg {
+  width: 2rem;
+  aspect-ratio: 1;
+  fill: #c69963;
+}
+.home__location {
+  grid-area: location;
+}
+.home__rooms {
+  grid-area: rooms;
+}
+.home__area {
+  grid-area: area;
+}
+.home__price {
+  grid-area: price;
+}
+.home__btn {
+  grid-area: btn;
+  justify-self: stretch;
+}
+
+.gallery {
+  background-color: #f9f7f6;
+  grid-area: gallery;
+  display: grid;
+  grid-template: repeat(7, 5vw)/repeat(8, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  grid-template-areas: "p1  p1  p2  p2  p2  p3  p4  p4" "p1  p1  p2  p2  p2  p3  p4  p4" "p5  p5  p2  p2  p2  p8  p8  p9" "p5  p5  p6  p6  p7  p8  p8  p9" "p5  p5  p6  p6  p13 p13 p13 p9" "p10 p11 p11 p12 p13 p13 p13 p14" "p10 p11 p11 p12 p13 p13 p13 p14";
+}
+.gallery__item--1 {
+  grid-area: p1;
+}
+.gallery__item--2 {
+  grid-area: p2;
+}
+.gallery__item--3 {
+  grid-area: p3;
+}
+.gallery__item--4 {
+  grid-area: p4;
+}
+.gallery__item--5 {
+  grid-area: p5;
+}
+.gallery__item--6 {
+  grid-area: p6;
+}
+.gallery__item--7 {
+  grid-area: p7;
+}
+.gallery__item--8 {
+  grid-area: p8;
+}
+.gallery__item--9 {
+  grid-area: p9;
+}
+.gallery__item--10 {
+  grid-area: p10;
+}
+.gallery__item--11 {
+  grid-area: p11;
+}
+.gallery__item--12 {
+  grid-area: p12;
+}
+.gallery__item--13 {
+  grid-area: p13;
+}
+.gallery__item--14 {
+  grid-area: p14;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.footer {
+  background-color: #101d2c;
+  grid-area: footer;
+  padding: 8rem 10rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .footer {
+    padding: 4rem 2rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .footer {
+    padding: 4rem 2rem;
+  }
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.nav__link {
+  text-decoration: none;
+  color: #f9f7f6;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  padding: 1.5rem;
+  transition: all 0.5s;
+  font-family: "Josefin Sans", sans-serif;
+}
+.nav__link:hover {
+  background-color: #17293f;
+  transform: translateY(-0.5rem);
+}
+
+.copyright {
+  text-align: center;
+  color: #aaa;
+  font-size: 1.4rem;
+  margin-top: 8rem;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 37.5em) {
+  .copyright {
+    margin-top: 4rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .copyright {
+    margin-top: 4rem;
+  }
+}
+
+.mb-sm {
+  margin-bottom: 2rem;
+}
+
+.mb-md {
+  margin-bottom: 3rem;
+}
+
+.mb-lg {
+  margin-bottom: 4rem;
 }/*# sourceMappingURL=main.css.map */

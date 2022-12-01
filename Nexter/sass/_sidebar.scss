@@ -1,0 +1,6 @@
+@use "./base" as *;
+
+.sidebar {
+    background-color: $color-primary;
+    grid-area: sidebar;
+  }

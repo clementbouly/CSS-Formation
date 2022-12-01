@@ -1,0 +1,108 @@
+@use "./base" as *;
+@use "./mixins" as *;
+
+.homes {
+  grid-area: homes;
+  justify-self: center;
+  margin: 15rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 4rem;
+
+  @include respond(phone, tab-port) {
+    margin: 5rem;
+  }
+}
+
+.home {
+  background-color: $color-grey-light-1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  position: relative;
+  justify-items: flex-start;
+
+  grid-template-areas:
+    "img img"
+    "name name"
+    "location rooms"
+    "area price"
+    "btn btn";
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    grid-area: img;
+  }
+
+  &__like {
+
+    width: 2rem;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    &--liked {
+      fill: hsl(0, 74%, 46%);
+    }
+
+    &:hover {
+      fill: hsl(0, 74%, 46%);
+      cursor: pointer;
+    }
+  }
+
+  &__name {
+    grid-area: name;
+    background-color: $color-secondary;
+    color: $color-white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-family: $font-display;
+    justify-self: center;
+    width: 80%;
+    position: absolute;
+    top: -5rem;
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+
+    svg {
+      width: 2rem;
+      aspect-ratio: 1;
+      fill: $color-primary;
+    }
+  }
+
+  &__location {
+    grid-area: location;
+  }
+
+  &__rooms {
+    grid-area: rooms;
+  }
+
+  &__area {
+    grid-area: area;
+  }
+
+  &__price {
+    grid-area: price;
+  }
+
+  &__btn {
+    grid-area: btn;
+    justify-self: stretch;
+  }
+}

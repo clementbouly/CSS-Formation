@@ -1,0 +1,63 @@
+@use "./base" as *;
+
+%heading {
+    font-weight: 400;
+    font-family: $font-display;
+}
+
+.heading-1 {
+    font-size: 3.5rem;
+    @extend %heading;
+}
+
+.heading-2 {
+    font-size: 4rem;
+    font-style: italic;
+    line-height: 1;
+    @extend %heading;
+
+    &--dark {
+        color: $color-grey-dark-1;
+    }
+
+    &--light {
+        color: $color-grey-light-1;
+    }
+}
+
+.heading-3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $color-primary;
+    @extend %heading;
+}
+
+.heading-4 {
+    font-size: 1.9rem;
+    @extend %heading;
+
+    &--dark {
+        color: $color-grey-dark-1;
+    }
+
+    &--light {
+        color: $color-grey-light-1;
+    }
+}
+
+.btn {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 1.5rem 3rem;
+    border: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: all .4s ;
+    font-family: $font-display;
+
+    &:hover {
+        background-color: $color-primary-dark;
+        cursor: pointer;
+        font-size: 1.6rem;
+    }
+}

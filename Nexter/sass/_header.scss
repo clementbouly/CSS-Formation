@@ -1,1 +1,6 @@
 @use "./base" as *;
+
+.header {
+    background-color: $color-secondary;
+    grid-area: header;
+  }
