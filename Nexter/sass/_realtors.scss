@@ -1,6 +1,33 @@
 @use "./base" as *;
 
 .realtors {
-    background-color: $color-secondary;
-    grid-area: realtors;
+  background-color: $color-secondary;
+  grid-area: realtors;
+  padding: 4rem 0;
+
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 3rem;
+
+  & img {
+    width: 7rem;
+    border-radius: 10rem;
   }
+
+  &__list {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    gap: 2rem;
+    row-gap: 4rem;
+    align-items: center;
+  }
+
+  &__details {
+    color: $color-white;
+  }
+
+  &__sold{
+    text-transform: uppercase;
+  }
+}

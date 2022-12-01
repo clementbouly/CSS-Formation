@@ -71,7 +71,7 @@ body {
     "sidebar footer         footer          footer";
 
   @include respond(tab-port) {
-    grid-template-rows: 5rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
     grid-template-columns: 50% 1fr minmax(30%, 1fr);
     grid-template-areas:
       "sidebar sidebar  sidebar"
@@ -86,7 +86,7 @@ body {
 
   @include respond(phone) {
     grid-template-columns: 1fr;
-    grid-template-rows: 5rem repeat(8, min-content);
+    grid-template-rows: 6rem calc(100vh - 6rem) repeat(7, min-content);
     grid-template-areas:
       "sidebar"
       "header"

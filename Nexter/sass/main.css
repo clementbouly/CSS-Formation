@@ -64,8 +64,8 @@ body {
 }
 @media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
   .container {
-    grid-template-rows: 5rem 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
-    grid-template-rows: 5rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-rows: 6rem 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
     grid-template-columns: 50% 1fr minmax(30%, 1fr);
     grid-template-areas: "sidebar sidebar  sidebar" "header  header   realtors" "features features features" "story-content story-content story-content" "story-pictures story-pictures story-pictures " "homes homes homes" "gallery gallery gallery" "footer footer footer";
   }
@@ -73,8 +73,8 @@ body {
 @media only screen and (max-width: 37.5em) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 5rem repeat(8, -webkit-min-content);
-    grid-template-rows: 5rem repeat(8, min-content);
+    grid-template-rows: 6rem calc(100vh - 6rem) repeat(7, -webkit-min-content);
+    grid-template-rows: 6rem calc(100vh - 6rem) repeat(7, min-content);
     grid-template-areas: "sidebar" "header" "realtors" "features" "story-content" "story-pictures" "homes" "gallery" "footer";
   }
 }
@@ -84,8 +84,17 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+.--dark {
+  color: #54483A;
+}
+
+.--light {
+  color: #f9f7f6;
+}
+
 .heading-1 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
+  line-height: 1;
 }
 
 .heading-2 {
@@ -93,27 +102,15 @@ body {
   font-style: italic;
   line-height: 1;
 }
-.heading-2--dark {
-  color: #54483A;
-}
-.heading-2--light {
-  color: #f9f7f6;
-}
 
 .heading-3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
   color: #c69963;
 }
 
 .heading-4 {
   font-size: 1.9rem;
-}
-.heading-4--dark {
-  color: #54483A;
-}
-.heading-4--light {
-  color: #f9f7f6;
 }
 
 .btn {
@@ -135,16 +132,145 @@ body {
 .sidebar {
   background-color: #c69963;
   grid-area: sidebar;
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (max-width: 37.5em) {
+  .sidebar {
+    align-items: center;
+    justify-content: end;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .sidebar {
+    align-items: center;
+    justify-content: end;
+  }
+}
+.sidebar-btn {
+  background-color: white;
+  border: none;
+  width: 5rem;
+  height: 2px;
+  margin-top: 4rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .sidebar-btn {
+    margin-top: 0;
+    margin-right: 2rem;
+  }
+}
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+  .sidebar-btn {
+    margin-top: 0;
+    margin-right: 2rem;
+  }
+}
+.sidebar-btn::before {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  transform: translateY(-1.5rem);
+}
+.sidebar-btn::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  transform: translateY(1.3rem);
 }
 
 .header {
-  background-color: #101d2c;
   grid-area: header;
+  border-right: 1px solid #aaa;
+  background-image: linear-gradient(to right bottom, rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url(/img/hero.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 4rem;
+  padding-bottom: 8rem;
+  display: grid;
+  grid-template-rows: 1fr repeat(2, -webkit-min-content) 1fr repeat(2, -webkit-min-content);
+  grid-template-rows: 1fr repeat(2, min-content) 1fr repeat(2, min-content);
+  grid-template-columns: 75%;
+  gap: 2rem;
+  justify-content: center;
+}
+@media only screen and (max-width: 37.5em) {
+  .header {
+    padding: 5rem 0;
+    grid-template-columns: 80%;
+    gap: 1.5rem;
+    border-bottom: 1px solid #aaa;
+  }
+}
+.header__logo {
+  width: 15rem;
+  justify-self: center;
+}
+.header__btn {
+  justify-self: start;
+  align-self: flex-start;
+}
+.header__seenon-text {
+  font-size: 1.5rem;
+  color: #aaa;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content 1fr;
+  grid-template-columns: 1fr max-content 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.header__seenon-text::before, .header__seenon-text::after {
+  content: "";
+  display: block;
+  background-color: currentColor;
+  height: 1px;
+  width: 100%;
+}
+.header__seenon-logos {
+  display: flex;
+  justify-content: space-around;
+}
+.header__seenon-logos img {
+  height: 1.5vw;
+  filter: brightness(70%);
+}
+@media only screen and (max-width: 37.5em) {
+  .header__seenon-logos img {
+    height: 2rem;
+  }
 }
 
 .realtors {
   background-color: #101d2c;
   grid-area: realtors;
+  padding: 4rem 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 3rem;
+}
+.realtors img {
+  width: 7rem;
+  border-radius: 10rem;
+}
+.realtors__list {
+  display: grid;
+  grid-template-columns: -webkit-min-content -webkit-max-content;
+  grid-template-columns: min-content max-content;
+  gap: 2rem;
+  row-gap: 4rem;
+  align-items: center;
+}
+.realtors__details {
+  color: #fff;
+}
+.realtors__sold {
+  text-transform: uppercase;
 }
 
 .features {
@@ -159,12 +285,12 @@ body {
 }
 @media only screen and (max-width: 37.5em) {
   .features {
-    margin: 5rem;
+    margin: 10rem 5rem;
   }
 }
 @media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
   .features {
-    margin: 5rem;
+    margin: 10rem 5rem;
   }
 }
 
@@ -268,12 +394,12 @@ body {
 }
 @media only screen and (max-width: 37.5em) {
   .homes {
-    margin: 5rem;
+    margin: 10rem 5rem;
   }
 }
 @media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
   .homes {
-    margin: 5rem;
+    margin: 10rem 5rem;
   }
 }
 
@@ -411,16 +537,6 @@ body {
   background-color: #101d2c;
   grid-area: footer;
   padding: 8rem 10rem;
-}
-@media only screen and (max-width: 37.5em) {
-  .footer {
-    padding: 4rem 2rem;
-  }
-}
-@media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
-  .footer {
-    padding: 4rem 2rem;
-  }
 }
 
 .nav {
